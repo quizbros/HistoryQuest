@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HistoryQuest | Sejarah SPM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">⚔ HISTORY QUEST</div>
+    <div class="nav-links">
+      <a href="#" onclick="showHome(); return false;">Laman Utama</a>
+      <a href="#" onclick="startQuest(); return false;">Nota Pembelajaran</a>
+      <a href="#" onclick="startQuest(); return false;">Kuiz Interaktif</a>
+      <a href="#player-info" onclick="showAchievements(); return false;">Pencapaian</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <h1>SELAMAT DATANG, PENEROKA SEJARAH!</h1>
+      <h2>Terokai Masa Silam, Cipta Masa Hadapan.</h2>
+      <p>Pelajari sejarah Malaysia melalui misi yang menarik, kuiz interaktif dan cabaran yang menguji pengetahuan anda.</p>
+      <button onclick="startQuest()">MULA PENGEMBARAAN</button>
+    </section>
+
+    <section class="player-info" id="player-info">
+      <div class="info-card"><h3>⭐ JUMLAH XP</h3><p><span id="total-xp">0</span> XP</p></div>
+      <div class="info-card"><h3>📚 MISI SELESAI</h3><p><span id="missions-done">0</span> / 13</p></div>
+      <div class="info-card"><h3>🏆 STATUS PENEROKA</h3><p id="player-rank">Peneroka Baharu</p></div>
+    </section>
+
+    <section class="chapters" id="chapter-section" hidden>
+      <h2>PILIH BAB SEJARAH ANDA</h2>
+      <p>Pilih bab dan mulakan pengembaraan pembelajaran anda!</p>
+      <div class="chapter-container">
+        <div class="chapter-card">
+          <h3>📜 BAB 1</h3><h4>Kedaulatan Negara</h4>
+          <p>Terokai maksud, ciri-ciri, kepentingan dan langkah mempertahankan kedaulatan negara.</p>
+          <button onclick="selectChapter(1)">MULA MISI</button>
+        </div>
+        <div class="chapter-card">
+          <h3>📜 BAB 2</h3><h4>Perlembagaan Persekutuan</h4>
+          <p>Kenali asas pembentukan dan kepentingan Perlembagaan Persekutuan.</p>
+          <button onclick="selectChapter(2)">MULA MISI</button>
+        </div>
+        <div class="chapter-card">
+          <h3>📜 BAB 3</h3><h4>Raja Berperlembagaan dan Demokrasi Berparlimen</h4>
+          <p>Pelajari sistem pemerintahan dan demokrasi di Malaysia.</p>
+          <button onclick="selectChapter(3)">MULA MISI</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter-notes" id="chapter-notes" hidden>
+      <h2>📖 BAB 1: KEDAULATAN NEGARA</h2>
+      <p class="notes-intro">Pilih satu subtopik untuk membaca nota dan menjawab cabaran.</p>
+      <div class="notes-container">
+        <article class="notes-card topic-card" onclick="openTopic('1.1')">
+          <h3>1.1 Konsep Kedaulatan</h3>
+          <p>Maksud, takrif, pandangan tokoh dan jenis kedaulatan.</p>
+        </article>
+        <article class="notes-card topic-card" onclick="openTopic('1.2')">
+          <h3>1.2 Ciri Negara yang Berdaulat</h3>
+          <p>Pemerintahan, sempadan, perundangan dan rakyat.</p>
+        </article>
+        <article class="notes-card topic-card" onclick="openTopic('1.3')">
+          <h3>1.3 Kepentingan Mewujudkan Negara Berdaulat</h3>
+          <p>Pentadbiran, ekonomi, sosial, hubungan luar dan pengiktirafan.</p>
+        </article>
+        <article class="notes-card topic-card" onclick="openTopic('1.4')">
+          <h3>1.4 Langkah Mempertahankan Kedaulatan</h3>
+          <p>Kestabilan politik, perpaduan, patriotisme dan pertahanan negara.</p>
+        </article>
+      </div>
+      <button onclick="backToChapters()">KEMBALI KE PILIHAN BAB</button>
+    </section>
+
+    <section class="topic-page" id="topic-1-1" hidden>
+      <h2>📖 1.1 KONSEP KEDAULATAN</h2>
+      <p>Kedaulatan ditakrifkan sebagai kekuasaan tertinggi dan kewibawaan sesebuah negara yang bebas serta mempunyai hak untuk melaksanakan pemerintahan dan pentadbiran negara.</p>
+      <div class="notes-card"><h3>A. Takrif Kedaulatan</h3>
+        <ul>
+          <li><strong>Bahasa Yunani:</strong> <em>Supernus</em> atau <em>superanus</em> bermaksud agung atau tertinggi.</li>
+          <li><strong>Bahasa Inggeris:</strong> <em>Sovereignty</em> bermaksud kuasa penuh terhadap pemerintahan.</li>
+          <li><strong>Bahasa Arab:</strong> Berasal daripada perkataan <em>daulah</em> yang bermaksud kuasa pemerintahan sesebuah kerajaan.</li>
+          <li><strong>Bahasa Melayu:</strong> Berasal daripada perkataan <em>daulat</em> yang bermaksud kekuasaan tertinggi terhadap pemerintahan negara.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>B. Pandangan Tokoh</h3>
+        <ul>
+          <li><strong>Aristotle:</strong> Kuasa tertinggi dalam sistem pemerintahan yang terikat oleh undang-undang.</li>
+          <li><strong>Ibnu Khaldun:</strong> Kekuatan dan kekuasaan negara berdasarkan semangat kekitaan bangsa.</li>
+          <li><strong>Jean Bodin:</strong> Kuasa tertinggi yang kekal dan tidak terbatas untuk membuat undang-undang.</li>
+          <li><strong>Tunku Abdul Rahman:</strong> Kebebasan dan keadilan untuk kesejahteraan rakyat.</li>
+          <li><strong>Tun Dr. Mohamed Salleh Abas:</strong> Kebebasan negara merdeka daripada telunjuk asing.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>C. Jenis Kedaulatan</h3>
+        <ul>
+          <li><strong>Kedaulatan Tradisional:</strong> Kuasa pemerintahan mutlak terletak pada raja.</li>
+          <li><strong>Kedaulatan Moden:</strong> Berkaitan idea negara bangsa, hak rakyat dan kerajaan berperlembagaan.</li>
+          <li><strong>Kedaulatan Undang-undang:</strong> Kerajaan dan rakyat tertakluk kepada undang-undang.</li>
+          <li><strong>Kedaulatan Antarabangsa:</strong> Pengiktirafan Pertubuhan Bangsa-Bangsa Bersatu terhadap sesebuah negara.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>⭐ Ingat Fakta Penting</h3><p>Kemerdekaan Tanah Melayu pada 31 Ogos 1957 dan pembentukan Malaysia pada 16 September 1963 mengukuhkan kedaulatan negara.</p></div>
+      <div class="quiz-section" id="quiz-1-1"></div>
+      <button onclick="backToTopics()">KEMBALI KE SUBTOPIK</button>
+    </section>
+
+    <section class="topic-page" id="topic-1-2" hidden>
+      <h2>📖 1.2 CIRI NEGARA YANG BERDAULAT</h2>
+      <p>Negara yang berdaulat mempunyai ciri tertentu bagi memastikan negara dapat menjalankan pemerintahan dengan bebas dan teratur.</p>
+      <div class="notes-card"><h3>1. Mempunyai Pemerintahan</h3>
+        <ul>
+          <li>Pemerintahan bertanggungjawab menjaga kestabilan politik, keamanan, pertahanan dan ekonomi.</li>
+          <li>Malaysia mengamalkan sistem Raja Berperlembagaan dan Demokrasi Berparlimen.</li>
+          <li>Pemerintahan terdiri daripada Kerajaan Persekutuan dan Kerajaan Negeri.</li>
+          <li>Badan pemerintahan merangkumi badan perundangan, eksekutif dan kehakiman.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>2. Mempunyai Sempadan</h3>
+        <ul>
+          <li>Sempadan ialah garis pemisah antara negeri atau negara.</li>
+          <li>Sempadan negara meliputi sempadan darat, air dan udara.</li>
+          <li>Sempadan memudahkan urusan pemerintahan, pentadbiran, pertahanan dan pembangunan ekonomi.</li>
+          <li>Malaysia berkongsi sempadan dengan negara jiran seperti Thailand, Indonesia, Brunei, Singapura dan Filipina.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>3. Mempunyai Perundangan</h3>
+        <ul>
+          <li>Perundangan menjadi asas kepada peraturan negara.</li>
+          <li>Undang-undang memelihara kesejahteraan, menjamin keadilan dan melindungi rakyat.</li>
+          <li>Undang-undang menjadi panduan untuk menyelesaikan pertelingkahan.</li>
+          <li>Perlembagaan Persekutuan merupakan undang-undang tertinggi negara.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>4. Mempunyai Rakyat</h3>
+        <ul>
+          <li>Rakyat ialah penduduk sesebuah negara.</li>
+          <li>Rakyat terikat dengan undang-undang dan peraturan negara.</li>
+          <li>Rakyat disatukan melalui identiti, bahasa, budaya, adat dan sejarah.</li>
+          <li>Malaysia mempunyai masyarakat berbilang kaum, agama dan budaya.</li>
+        </ul>
+      </div>
+      <div class="quiz-section" id="quiz-1-2"></div>
+      <button onclick="backToTopics()">KEMBALI KE SUBTOPIK</button>
+    </section>
+
+    <section class="topic-page" id="topic-1-3" hidden>
+      <h2>📖 1.3 KEPENTINGAN MEWUJUDKAN NEGARA BERDAULAT</h2>
+      <p>Kedaulatan membolehkan negara melaksanakan pemerintahan sendiri, membangunkan ekonomi, menjaga kesejahteraan rakyat dan menjalinkan hubungan dengan negara luar.</p>
+      <div class="notes-card"><h3>1. Keberkesanan Pentadbiran</h3><p>Negara dapat melaksanakan sistem pentadbiran yang cekap dan berkesan. Pentadbiran yang stabil membantu memastikan keamanan serta kemajuan negara.</p></div>
+      <div class="notes-card"><h3>2. Kemakmuran Ekonomi</h3><p>Negara bebas menggubal dasar ekonomi, mengurus sumber dan menjalankan kegiatan ekonomi untuk meningkatkan taraf hidup rakyat.</p></div>
+      <div class="notes-card"><h3>3. Kesejahteraan Sosial</h3><p>Kedaulatan membantu negara menjaga keharmonian masyarakat, memupuk perpaduan dan menyediakan kemudahan serta kebajikan kepada rakyat.</p></div>
+      <div class="notes-card"><h3>4. Kecemerlangan Hubungan Luar Negara</h3><p>Negara berdaulat dapat menjalinkan hubungan diplomatik dan kerjasama dengan negara lain demi kepentingan bersama.</p></div>
+      <div class="notes-card"><h3>5. Pengiktirafan Negara</h3><p>Kedaulatan membolehkan negara mendapat pengiktirafan antarabangsa dan dihormati sebagai negara yang merdeka serta mempunyai hak menentukan hala tujunya sendiri.</p></div>
+      <div class="quiz-section" id="quiz-1-3"></div>
+      <button onclick="backToTopics()">KEMBALI KE SUBTOPIK</button>
+    </section>
+
+    <section class="topic-page" id="topic-1-4" hidden>
+      <h2>📖 1.4 LANGKAH MEMPERTAHANKAN KEDAULATAN</h2>
+      <p>Pemerintah dan rakyat memainkan peranan penting untuk mempertahankan kedaulatan negara. Kerjasama mereka memastikan kestabilan politik, kemakmuran ekonomi, keamanan dan kesejahteraan negara.</p>
+      <div class="notes-card"><h3>1. Mewujudkan Kestabilan Politik dan Kemakmuran Ekonomi</h3>
+        <p>Pemerintah dan rakyat perlu bekerjasama untuk menjamin kestabilan politik dan kemakmuran ekonomi.</p>
+        <p><strong>Peranan pemerintah:</strong></p>
+        <ul>
+          <li>Mewujudkan pentadbiran yang cekap.</li>
+          <li>Mengukuhkan amalan tadbir urus dalam pentadbiran.</li>
+          <li>Memastikan agihan sumber kekayaan negara secara adil kepada semua kaum melalui dasar pembangunan ekonomi.</li>
+          <li>Melaksanakan undang-undang negara menurut perlembagaan secara berkesan.</li>
+        </ul>
+        <p><strong>Peranan rakyat:</strong></p>
+        <ul>
+          <li>Memberikan kesetiaan kepada raja dan negara.</li>
+          <li>Menyokong segala usaha dan dasar kerajaan bagi mewujudkan kestabilan politik.</li>
+          <li>Memupuk kerjasama dengan semua kaum supaya agihan kekayaan negara dinikmati oleh semua.</li>
+          <li>Mematuhi undang-undang negara.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>2. Mengekalkan Perpaduan Kaum</h3>
+        <p>Perpaduan penting untuk mengekalkan kedaulatan negara dan keharmonian masyarakat.</p>
+        <p><strong>Peranan pemerintah:</strong></p>
+        <ul>
+          <li>Menggubal dasar dan undang-undang berkaitan perpaduan kaum serta integrasi nasional.</li>
+          <li>Memastikan keberkesanan pelaksanaan dasar berkaitan bahasa, pendidikan dan kebudayaan oleh kementerian serta agensi berkaitan.</li>
+          <li>Merangka program serta kempen ke arah memupuk perpaduan kaum dan integrasi nasional.</li>
+          <li>Memperuntukkan perbelanjaan yang mencukupi untuk program memupuk perpaduan kaum.</li>
+        </ul>
+        <p><strong>Peranan rakyat:</strong></p>
+        <ul>
+          <li>Menggunakan bahasa kebangsaan dan menghayati prinsip Rukun Negara.</li>
+          <li>Memahami dan menghormati agama serta budaya pelbagai kaum.</li>
+          <li>Mengamalkan semangat perkongsian, bertoleransi dan saling menghormati.</li>
+          <li>Melibatkan diri dalam program kemasyarakatan yang memupuk kerjasama antara kaum.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>3. Memupuk Patriotisme</h3>
+        <p>Patriotisme ialah perasaan cinta yang mendalam terhadap negara serta sanggup mempertahankan sejarah, bahasa, undang-undang, warisan dan budaya. Patriotisme penting untuk melahirkan pemimpin dan rakyat yang taat setia serta sanggup berkorban demi negara.</p>
+        <p><strong>Peranan pemerintah:</strong></p>
+        <ul>
+          <li>Menganjurkan sambutan Hari Kebangsaan dan Hari Pahlawan untuk menimbulkan kecintaan terhadap negara.</li>
+          <li>Mewajibkan mata pelajaran Sejarah sebagai mata pelajaran teras di sekolah bagi melahirkan generasi yang peka terhadap sejarah negara.</li>
+          <li>Menganjurkan kempen dan menerbitkan filem atau rancangan untuk memupuk patriotisme melalui pelbagai media.</li>
+          <li>Memberikan pengiktirafan kepada rakyat Malaysia yang berjasa kepada negara.</li>
+        </ul>
+        <p><strong>Peranan rakyat:</strong></p>
+        <ul>
+          <li>Menghormati lambang negara seperti bendera Jalur Gemilang, Jata Negara dan lagu Negaraku.</li>
+          <li>Menyanyikan dan menghargai adat serta warisan negara.</li>
+          <li>Meningkatkan imej negara melalui kejayaan dalam bidang pendidikan, sukan dan ekonomi.</li>
+          <li>Menghargai tokoh pelbagai kaum yang berjuang untuk kemerdekaan dan kedaulatan negara.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>4. Mengukuhkan Pertahanan Negara</h3>
+        <p>Pemerintah dan rakyat bertanggungjawab mempertahankan negara daripada ancaman musuh. Pertahanan negara penting untuk mengekalkan kedaulatan negara.</p>
+        <p><strong>Peranan pemerintah:</strong></p>
+        <ul>
+          <li>Menggubal dasar dan undang-undang untuk melindungi keselamatan negara.</li>
+          <li>Mengadakan perjanjian pertahanan serta latihan ketenteraan bersama-sama negara serantau dan antarabangsa.</li>
+          <li>Memodenkan aset ketenteraan untuk mengukuhkan pasukan pertahanan negara.</li>
+          <li>Memastikan pasukan keselamatan sentiasa bersiap siaga menghadapi cabaran semasa.</li>
+        </ul>
+        <p><strong>Peranan rakyat:</strong></p>
+        <ul>
+          <li>Peka terhadap isu keselamatan negara, contohnya memberikan maklumat tentang pencerobohan sempadan negara.</li>
+          <li>Mengelakkan kolaborasi dengan pihak luar yang boleh mengancam keselamatan dan kedaulatan negara.</li>
+          <li>Menganggotai pasukan keselamatan dan pasukan sukarelawan untuk mempertahankan negara.</li>
+          <li>Sanggup berkorban demi mempertahankan kedaulatan negara.</li>
+        </ul>
+      </div>
+      <div class="notes-card"><h3>⭐ Rumusan</h3><p>Kerjasama antara pemerintah dengan rakyat dalam melaksanakan langkah mengekalkan kedaulatan telah berjaya menghasilkan keamanan dan kesejahteraan. Perpaduan dan kerjasama kaum menjadi teras kepada kemakmuran, kelangsungan serta kedaulatan negara.</p></div>
+      <div class="quiz-section" id="quiz-1-4"></div>
+      <button onclick="backToTopics()">KEMBALI KE SUBTOPIK</button>
+    </section>
+
+    <section class="chapter-notes" id="chapter-notes-2" hidden>
+      <h2>📖 BAB 2: PERLEMBAGAAN PERSEKUTUAN</h2>
+      <p class="notes-intro">Pilih satu subtopik untuk membaca nota dan menjawab cabaran.</p>
+      <div class="notes-container" id="topic-list-2"></div>
+      <button onclick="backToChapters()">KEMBALI KE PILIHAN BAB</button>
+    </section>
+    <section class="chapter-notes" id="chapter-notes-3" hidden>
+      <h2>📖 BAB 3: RAJA BERPERLEMBAGAAN DAN DEMOKRASI BERPARLIMEN</h2>
+      <p class="notes-intro">Pilih satu subtopik untuk membaca nota dan menjawab cabaran.</p>
+      <div class="notes-container" id="topic-list-3"></div>
+      <button onclick="backToChapters()">KEMBALI KE PILIHAN BAB</button>
+    </section>
+\n  </main>
+
+  <footer><p>⚔ HISTORY QUEST | Pembelajaran Sejarah Tingkatan 5</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
